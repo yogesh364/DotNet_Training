@@ -1,0 +1,7 @@
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment1\Assignment1\bin\Debug\Assignment1.exe.config
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment1\Assignment1\bin\Debug\Assignment1.exe
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment1\Assignment1\bin\Debug\Assignment1.pdb
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment1\Assignment1\obj\Debug\Assignment1.csproj.AssemblyReference.cache
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment1\Assignment1\obj\Debug\Assignment1.csproj.CoreCompileInputs.cache
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment1\Assignment1\obj\Debug\Assignment1.exe
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment1\Assignment1\obj\Debug\Assignment1.pdb
