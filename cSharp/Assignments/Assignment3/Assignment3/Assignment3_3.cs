@@ -21,10 +21,10 @@ namespace Assignment3
             this.price = price;
             this.qty = qty;
             this.dateOfSale = dateOfSale;
-            sales();
+            sales(price, qty);
         }
 
-        public double sales()
+        public double sales(double price , int qty)
         {
            return totalAmount = price * (double)qty;
         }
@@ -55,7 +55,7 @@ namespace Assignment3
     }
 
     /*Output:
-     *  Sales No is 10
+        Sales No is 10
         Product No is 101
         Date of the Sale is 6/24/2025 11:13:46 PM
         Quantity of the Product is 10
