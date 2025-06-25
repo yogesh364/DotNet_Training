@@ -91,18 +91,18 @@ namespace codeChallenge1
             Console.Write("Enter the First Number : ");
             int a = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter the First Number : ");
+            Console.Write("Enter the Second Number : ");
             int b = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter the First Number : ");
+            Console.Write("Enter the Third Number : ");
             int c = Convert.ToInt32(Console.ReadLine());
 
             largestNo(a, b, c);
         }
         /*Output:
          *  Enter the First Number : 10
-            Enter the First Number : 20
-            Enter the First Number : 30
+            Enter the Seond Number : 20
+            Enter the Third Number : 30
             The largest Number is : 30 */
     }
     class main
@@ -110,8 +110,11 @@ namespace codeChallenge1
         static void Main(string[] args)
         {
             Program.remove();  // 1
+            Console.WriteLine();
             swapChararcters.getInput(); // 2
+            Console.WriteLine();
             largestInteger.getData(); // 3
+            Console.WriteLine();
             Console.ReadLine();
 
         }
