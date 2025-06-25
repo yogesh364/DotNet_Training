@@ -21,9 +21,10 @@ namespace Assignment3
             this.price = price;
             this.qty = qty;
             this.dateOfSale = dateOfSale;
+            sales();
         }
 
-        public double sales(int qty, double price)
+        public double sales()
         {
            return totalAmount = price * (double)qty;
         }
@@ -48,7 +49,6 @@ namespace Assignment3
         static void Main()
         {
             saleDetails s = new saleDetails(10, 101, 1000.12, 10, DateTime.Now);
-            s.sales(10, 1000.12);
             s.display();
             Console.ReadLine();
         }
