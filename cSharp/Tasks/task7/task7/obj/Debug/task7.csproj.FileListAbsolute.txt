@@ -1,0 +1,7 @@
+C:\YOGESH_V\DotNetTraining\cSharp\Tasks\task7\task7\bin\Debug\task7.exe.config
+C:\YOGESH_V\DotNetTraining\cSharp\Tasks\task7\task7\bin\Debug\task7.exe
+C:\YOGESH_V\DotNetTraining\cSharp\Tasks\task7\task7\bin\Debug\task7.pdb
+C:\YOGESH_V\DotNetTraining\cSharp\Tasks\task7\task7\obj\Debug\task7.csproj.AssemblyReference.cache
+C:\YOGESH_V\DotNetTraining\cSharp\Tasks\task7\task7\obj\Debug\task7.csproj.CoreCompileInputs.cache
+C:\YOGESH_V\DotNetTraining\cSharp\Tasks\task7\task7\obj\Debug\task7.exe
+C:\YOGESH_V\DotNetTraining\cSharp\Tasks\task7\task7\obj\Debug\task7.pdb
