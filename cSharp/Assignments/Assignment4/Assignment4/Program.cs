@@ -136,7 +136,7 @@ namespace Coding
                             Console.Write("Enter the Employee Name :");
                             string Name = Console.ReadLine();
                             Console.Write("Enter the Employee Department :");
-                             string Dept= Console.ReadLine();
+                            string Dept = Console.ReadLine();
                             Console.Write("Enter the Employee Salary :");
                             double Salary = Convert.ToDouble(Console.ReadLine());
                             Emp.addEmployee(new employee { id = ID, name = Name, dept = Dept, salary = Salary });
@@ -193,4 +193,5 @@ namespace Coding
     }
 
 }
+
 
