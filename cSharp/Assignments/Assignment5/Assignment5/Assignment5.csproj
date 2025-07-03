@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Assignment5.bookShelf</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,9 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InsufficientBalanceException.cs" />
+    <Compile Include="books.cs" />
     <Compile Include="Saving.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scholarship.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

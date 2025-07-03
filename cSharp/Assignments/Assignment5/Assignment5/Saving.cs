@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Assignment5
 {
+    //program for doing transaction and throw exception if needed
+    class InsufficientBalanceException : Exception
+    {
+        public InsufficientBalanceException(string message) : base(message) { }
+    }
     class accounts
     {
         int acc_No, money, balance = 0;
@@ -31,28 +36,44 @@ namespace Assignment5
 
         public void getData()
         {
-
-            Console.Write("Enter the Transaction type [credit/debit] : ");
-            transaction_type = Console.ReadLine();
-            if (transaction_type == "credit")
+            try
             {
-                Console.Write("Enter the amount to be credited to your account : ");
-                money = Convert.ToInt32(Console.ReadLine());
-                credit(money);
-
-            }
-            else
-            {
-                if (balance == 0)
+                Console.Write("Enter the Transaction type [credit/debit] : ");
+                transaction_type = Console.ReadLine();
+                if (transaction_type.ToLower() == "credit")
                 {
-                    Console.WriteLine("You do not have enough Balance !!!");
+                    Console.Write("Enter the amount to be credited to your account : ");
+                    money = Convert.ToInt32(Console.ReadLine());
+                    credit(money);
+
+                }
+                else if(transaction_type.ToLower() == "debit")
+                {
+
+                    Console.Write("Enter the amount to be debited from your account : ");
+                    money = Convert.ToInt32(Console.ReadLine());
+                    
+                    if (balance <= 0 || balance < money)
+                    {
+                        throw new InsufficientBalanceException("You do not have enough Amount to Withdraw from Your Account");
+                    }
+                    else
+                    {
+                        debit(money);
+                    }
                 }
                 else
                 {
-                    Console.Write("Enter the amount to be debited from your account : ");
-                    money = Convert.ToInt32(Console.ReadLine());
-                    debit(money);
+                    Console.WriteLine("Enter a Valid Input");
                 }
+            }
+            catch(InsufficientBalanceException ibe)
+            {
+                Console.WriteLine(ibe.Message);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
         public void showData()
