@@ -1,0 +1,7 @@
+C:\YOGESH_V\DotNetTraining\cSharp\CodeChallenges\codeChallenge2\codeChallenge2\bin\Debug\codeChallenge2.exe.config
+C:\YOGESH_V\DotNetTraining\cSharp\CodeChallenges\codeChallenge2\codeChallenge2\bin\Debug\codeChallenge2.exe
+C:\YOGESH_V\DotNetTraining\cSharp\CodeChallenges\codeChallenge2\codeChallenge2\bin\Debug\codeChallenge2.pdb
+C:\YOGESH_V\DotNetTraining\cSharp\CodeChallenges\codeChallenge2\codeChallenge2\obj\Debug\codeChallenge2.csproj.AssemblyReference.cache
+C:\YOGESH_V\DotNetTraining\cSharp\CodeChallenges\codeChallenge2\codeChallenge2\obj\Debug\codeChallenge2.csproj.CoreCompileInputs.cache
+C:\YOGESH_V\DotNetTraining\cSharp\CodeChallenges\codeChallenge2\codeChallenge2\obj\Debug\codeChallenge2.exe
+C:\YOGESH_V\DotNetTraining\cSharp\CodeChallenges\codeChallenge2\codeChallenge2\obj\Debug\codeChallenge2.pdb
