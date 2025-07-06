@@ -1,0 +1,6 @@
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment7\Assignment7\Lib1\bin\Debug\Lib1.dll
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment7\Assignment7\Lib1\bin\Debug\Lib1.pdb
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment7\Assignment7\Lib1\obj\Debug\Lib1.csproj.AssemblyReference.cache
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment7\Assignment7\Lib1\obj\Debug\Lib1.csproj.CoreCompileInputs.cache
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment7\Assignment7\Lib1\obj\Debug\Lib1.dll
+C:\YOGESH_V\DotNetTraining\cSharp\Assignments\Assignment7\Assignment7\Lib1\obj\Debug\Lib1.pdb
