@@ -1,0 +1,7 @@
+C:\YOGESH_V\DotNetTraining\SQL\SQL Code Challenges 1\CSharpCC1\CSharpCC1\bin\Debug\CSharpCC1.exe.config
+C:\YOGESH_V\DotNetTraining\SQL\SQL Code Challenges 1\CSharpCC1\CSharpCC1\bin\Debug\CSharpCC1.exe
+C:\YOGESH_V\DotNetTraining\SQL\SQL Code Challenges 1\CSharpCC1\CSharpCC1\bin\Debug\CSharpCC1.pdb
+C:\YOGESH_V\DotNetTraining\SQL\SQL Code Challenges 1\CSharpCC1\CSharpCC1\obj\Debug\CSharpCC1.csproj.AssemblyReference.cache
+C:\YOGESH_V\DotNetTraining\SQL\SQL Code Challenges 1\CSharpCC1\CSharpCC1\obj\Debug\CSharpCC1.csproj.CoreCompileInputs.cache
+C:\YOGESH_V\DotNetTraining\SQL\SQL Code Challenges 1\CSharpCC1\CSharpCC1\obj\Debug\CSharpCC1.exe
+C:\YOGESH_V\DotNetTraining\SQL\SQL Code Challenges 1\CSharpCC1\CSharpCC1\obj\Debug\CSharpCC1.pdb
