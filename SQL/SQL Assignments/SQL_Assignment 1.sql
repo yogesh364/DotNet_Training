@@ -30,7 +30,7 @@ Drop table Clients
 --Creating Employees Table
 
 create table Employees (Empno int primary key, Ename varchar(20) not null, job varchar(15),
-salary int check (salary > 0),Deptno int foreign key references Departments(Deptno))
+salary int check (salary > 0),Deptno int references Departments(Deptno))
 
 --Displaying Employees Table
 
@@ -89,7 +89,7 @@ Create table Projects (Project_ID int primary key,
 					   Descr varchar(30) not null,
 					   Start_Date Date, Planned_End_Date Date, Actual_End_Date Date,
 					   Budget bigint check (Budget > 0),
-					   Client_ID int foreign key references Clients(Client_ID))
+					   Client_ID int references Clients(Client_ID))
 
 --Altering Projects Table
 
