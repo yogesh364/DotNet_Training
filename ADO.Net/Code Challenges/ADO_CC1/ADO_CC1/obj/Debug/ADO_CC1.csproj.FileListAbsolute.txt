@@ -1,0 +1,7 @@
+C:\YOGESH_V\DotNetTraining\ADO.Net\Code Challenges\ADO_CC1\ADO_CC1\bin\Debug\ADO_CC1.exe.config
+C:\YOGESH_V\DotNetTraining\ADO.Net\Code Challenges\ADO_CC1\ADO_CC1\bin\Debug\ADO_CC1.exe
+C:\YOGESH_V\DotNetTraining\ADO.Net\Code Challenges\ADO_CC1\ADO_CC1\bin\Debug\ADO_CC1.pdb
+C:\YOGESH_V\DotNetTraining\ADO.Net\Code Challenges\ADO_CC1\ADO_CC1\obj\Debug\ADO_CC1.csproj.AssemblyReference.cache
+C:\YOGESH_V\DotNetTraining\ADO.Net\Code Challenges\ADO_CC1\ADO_CC1\obj\Debug\ADO_CC1.csproj.CoreCompileInputs.cache
+C:\YOGESH_V\DotNetTraining\ADO.Net\Code Challenges\ADO_CC1\ADO_CC1\obj\Debug\ADO_CC1.exe
+C:\YOGESH_V\DotNetTraining\ADO.Net\Code Challenges\ADO_CC1\ADO_CC1\obj\Debug\ADO_CC1.pdb
