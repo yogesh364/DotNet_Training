@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Image Hover Effect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #sec {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+            #sec img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: cover;
+            }
+
+            #sec .image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: 0.5s ease;
+            }
+
+            #sec:hover .image {
+                opacity: 1;
+                border-radius: 10px;
+            }
+
+        .btn {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .btn:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            }
+
+        #sec-btn {
+            position: relative;
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;
+        }
+
+        #text {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        dl {
+            margin-top: 20px;
+        }
+
+        dt {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 18px;
+            color: black;
+        }
+
+        dd {
+            margin-top:5px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            color: darkblue;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #4caf50;
+            margin: 50px auto;
+            animation-name: moveRight;
+            animation-duration: 2s;
+            animation-delay: 1s; 
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            border-radius : 50%;
+        }
+
+        @keyframes moveRight {
+            0% {
+                transform: translateX(0);
+                background-color: blue;
+            }
+
+            50% {
+                transform: translateX(200px);
+                background-color: red;
+            }
+
+            100% {
+                transform: translateX(0);
+                background-color: yellow;
+            }
+        }
+        #sec-ani {
+            position: relative;
+            width: 500px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        header 
+        {
+            background-color: green;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto 0 auto; 
+            width: 800px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+        header img {
+            max-width: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 15px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #1b5e20;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+
+        ul li {
+            margin-bottom: 10px
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: blue;">Assignment 2</h1>
+
+    <!-- 1. Using HTML, CSS create display an image overlay effect on hover -->
+    <h2 style="text-align: center; color: red;">Hover The Below Image to See Magic</h2>
+    <section id="sec">
+        <img src="C:\YOGESH_V\DotNetTraining\Web_Technologies\HTML\Assignments\Assignment_2\Images\camera.jpg" alt="Original Picture" />
+        <img class="image" src="C:\YOGESH_V\DotNetTraining\Web_Technologies\HTML\Assignments\Assignment_2\Images\laughing.jpg" alt="Hover Image" />
+    </section>
+
+    <!-- 2. Create a CSS3 based button using style elements/properties -->
+    <h2 style="text-align: center; color: red;">Stylish Button</h2>
+    <section id="sec-btn">
+        <button class="btn">
+            Click Me
+        </button>
+    </section>
+
+    <!-- 3. Define a Descriptive/Definition List using your own items -->
+    <h2 style="text-align: center; color: red;">How to Make Coffee: 6 Steps</h2>
+    <section id="text">
+        <dl>
+            <dt>Step 1: Gather Ingredients</dt>
+            <dd>Get coffee grounds, fresh water, and any other ingredients like milk or sugar.</dd>
+
+            <dt>Step 2: Boil Water</dt>
+            <dd>Heat water until it reaches boiling point (about 100°C or 212°F).</dd>
+
+            <dt>Step 3: Prepare Coffee Maker</dt>
+            <dd>Place the coffee grounds into your coffee maker or filter.</dd>
+
+            <dt>Step 4: Pour Hot Water</dt>
+            <dd>Slowly pour the hot water over the coffee grounds, allowing the coffee to brew.</dd>
+
+            <dt>Step 5: Let it Brew</dt>
+            <dd>Allow the coffee to steep for about 3-5 minutes depending on desired strength.</dd>
+
+            <dt>Step 6: Serve and Enjoy</dt>
+            <dd>Pour the brewed coffee into a cup and add milk or sugar if desired. Enjoy!</dd>
+        </dl>
+    </section>
+
+    <!--4.  How to make use of animation-delay , and then restart again -->
+    <h2 style="text-align: center; color: red;">Enjoy The Animation</h2>
+    <section id="sec-ani">
+        <div class="box"></div>
+    </section>
+
+    <!-- 5. Create a Tribute Page of a person with his or her image on the top of the page. Name the person
+    Below that give his/her achievements or any information about the person. -->
+    <h2 style="text-align: center; color: red;">Tribute Page</h2>
+    <header>
+        <img src="C:\YOGESH_V\DotNetTraining\Web_Technologies\HTML\Assignments\Assignment_2\Images\subash.jpg" alt="Subhas Chandra Bose" />
+        <h1>Subhas Chandra Bose</h1>
+    </header>
+
+    <main>
+        <p>
+            Subhas Chandra Bose was a prominent leader in the Indian independence movement against British rule. Known for his militant approach and leadership of the Indian National Army (INA), he remains an iconic figure in India’s fight for freedom.
+        </p>
+
+        <h2>Achievements</h2>
+        <ul>
+            <li>Founded the Indian National Army (INA) to fight against British colonial rule.</li>
+            <li>Served as the President of the Indian National Congress in 1938 and 1939.</li>
+            <li>Advocated for armed resistance and international alliances to gain India's independence.</li>
+            <li>Popularized the slogan "Give me blood, and I shall give you freedom!"</li>
+            <li>Played a key role in inspiring patriotism and the freedom movement across India.</li>
+        </ul>
+
+        <p>
+            Bose's vision and determination made him one of the most influential and respected leaders in Indian history.
+        </p>
+    </main>
+</body>
+</html>

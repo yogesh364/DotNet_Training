@@ -1,0 +1,7 @@
+C:\YOGESH_V\DotNetTraining\Mini_Project\CSharp\Railway_Project\Railway_Project\bin\Debug\Railway_Project.exe.config
+C:\YOGESH_V\DotNetTraining\Mini_Project\CSharp\Railway_Project\Railway_Project\bin\Debug\Railway_Project.exe
+C:\YOGESH_V\DotNetTraining\Mini_Project\CSharp\Railway_Project\Railway_Project\bin\Debug\Railway_Project.pdb
+C:\YOGESH_V\DotNetTraining\Mini_Project\CSharp\Railway_Project\Railway_Project\obj\Debug\Railway_Project.csproj.AssemblyReference.cache
+C:\YOGESH_V\DotNetTraining\Mini_Project\CSharp\Railway_Project\Railway_Project\obj\Debug\Railway_Project.csproj.CoreCompileInputs.cache
+C:\YOGESH_V\DotNetTraining\Mini_Project\CSharp\Railway_Project\Railway_Project\obj\Debug\Railway_Project.exe
+C:\YOGESH_V\DotNetTraining\Mini_Project\CSharp\Railway_Project\Railway_Project\obj\Debug\Railway_Project.pdb

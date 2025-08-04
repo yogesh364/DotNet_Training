@@ -82,7 +82,7 @@ namespace Assignment_1
             var not = from v in emp
                       where v.Title != "Associate"
                       select v;
-            Console.WriteLine("Total employees whose designation is NOT Associate: " + count);
+            Console.WriteLine("Total employees whose designation is NOT Associate: " + not);
         }
 
         public void cityBased()
