@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Code Challenge 7</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+    <style>
+        h2{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+
+    <!--1.  Write a JavaScript program to calculate multiplication and division of two numbers (input from user). -->
+    <h2>1. Calculator</h2>
+
+    <form>
+        1st Number : <input type="text" id="n1" />
+        <br /><br />
+        2nd Number : <input type="text" id="n2" />
+        <br /><br />
+
+        <input type="button" onclick="multiply()" value="multiply" /> &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" onclick="divide()" value="divide" />
+    </form>
+
+    <p>
+        The result is : <span id="result"></span>
+    </p>
+
+    <script>
+        function multiply() {
+            let num1 = document.getElementById("n1").value;
+            let num2 = document.getElementById("n2").value;
+
+            document.getElementById("result").innerText = num1 * num2;
+        }
+
+        function divide() {
+            let num1 = document.getElementById("n1").value;
+            let num2 = document.getElementById("n2").value;
+
+
+            if (num1 == 0) {
+                alert("The value should be greater than zero");
+            }
+            else if (num2 == 0) {
+                alert("The value should be greater than zero");
+            }
+            else {
+                document.getElementById("result").innerText = num1 / num2;
+            }
+        }
+    </script>
+
+    <hr />
+
+    <!-- 2. Write a JavaScript for loop that will iterate from 0 to 15. For each iteration, it will check if the current number is odd or even, and display a message to the screen. -->
+    <h2>2. Odd or Even Checker</h2>
+
+    <script>
+        for (let i = 0; i <= 15; i++) {
+            if (i % 2 == 0) {
+                document.writeln(i + " is Even <br/>");
+            }
+            else {
+                document.writeln(i + " is Odd <br/>");
+
+            }
+        }
+    </script>
+
+    <hr />
+
+    <!--3. Write a JavaScript program that creates a button and add a click event listener to log a message when it's clicked -->
+
+    <h2>3. Button Click</h2>
+
+    <script>
+        $(document).ready(function () {
+            $('#alert').click(function () {
+                alert("The Button is Clicked!!");
+                console.log("The Button is Clicked !!");
+            });
+        });
+    </script>
+
+    <button id="alert" style="height: 50px; width: 80px; background-color:red; border-radius: 10px;">Click Me</button>
+
+    <hr />
+
+    <!-- 4.  Use and write the correct selector to hide all odd table rows in a table. -->
+
+    <h2>4. Hide Odd Rows in Table</h2>
+
+    <script>
+        $(document).ready(function () {
+            $('#hide').click(function () {
+                $('table tr:odd').hide();
+            });
+        });
+    </script>
+
+    <table>
+        <tr><td>Row 0</td></tr>
+        <tr><td>Row 1</td></tr>
+        <tr><td>Row 2</td></tr>
+        <tr><td>Row 3</td></tr>
+        <tr><td>Row 4</td></tr>
+        <tr><td>Row 5</td></tr>
+    </table>
+
+    <br /><br />
+
+    <button id="hide" style="height: 40px; width: 80px; background-color: purple; border-radius: 5px">Hide</button>
+
+    <hr />
+
+    <!--5. Find all h1 elements that are children of a div element and apply a background to them. -->
+
+    <h2>5. Make Design in H1</h2>
+
+    <script>
+        $(document).ready(function () {
+            $('#design').click(function () {
+                $('.top > h1').css("background-color", "blue").css("color", "white");
+            });
+        });
+    </script>
+
+    <div class="top">
+        <h1>I am Heading 1</h1>
+        <p> Para 1</p>
+        <h1>I am Heading 2</h1>
+        <p>Para 2</p>
+        <h1>I am Heading 3</h1>
+        <p>Para 3</p>
+    </div>
+
+    <button id="design" style="height:40px; width : 80px; color:yellow; background-color: black; border-radius: 5px;">Click</button>
+
+    <hr />
+
+    <h2>6. Get a Single Element</h2>
+
+    <ul>
+        <li>CSHARP</li>
+        <li>SQL</li>
+        <li>ADO</li>
+    </ul>
+
+    <p id="first"></p>
+
+    <script>
+        $(document).ready(function () {
+            let firstItem = $("li").first();
+            $("#first").text("First Item: " + firstItem.text());
+        });
+    </script>
+
+    <p id="result"></p>
+
+    <hr />
+
+    <!-- 7. Write a jQuery Code to add a tag at the beginning of the list item, containing the index of the list item Sample: -->
+    <h2>7. Append</h2>
+
+    <script>
+        $(document).ready(function () {
+            $('#e').click(function () {
+                $("#u > li").each(function (index) {
+                    $(this).prepend(index + " ");
+                });
+            })
+        });
+    </script>
+
+    <ul id="u">
+        <li>CSHARP</li>
+        <li>SQL</li>
+        <li>ADO</li>
+    </ul>
+
+    <button id="e" style="height:40px; width : 80px; color:white; background-color:crimson; border-radius: 5px;">Click</button>
+
+    <hr />
+
+    <!--8.  Append a <p> element with a text message when an <input> field is changed. -->
+
+    <h2>8. Append Text</h2>
+
+    <script>
+        $(document).ready(function () {
+            $('#input').change(function () {
+                $('#ui').append('<p>You Entered a Message</p>');
+            });
+        });
+    </script>
+
+    <h3>Enter Something:</h3>
+    <input type="text" id="input" placeholder="....">
+
+    <div id="ui"></div>
+
+
+    <hr />
+</body>
+</html>
