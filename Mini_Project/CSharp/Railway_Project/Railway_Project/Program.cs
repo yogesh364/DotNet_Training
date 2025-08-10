@@ -61,7 +61,7 @@ namespace Railway_Project
                             }
                             else if(choice == 2)
                             {
-
+                                bl.adminLogin();
                             }
                             else
                             {
