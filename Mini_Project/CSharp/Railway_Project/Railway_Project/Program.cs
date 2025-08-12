@@ -31,6 +31,7 @@ namespace Railway_Project
                     Console.Write("Enter your choice : ");
                     int ans = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine();
+                    Console.Clear();
 
                     if(ans == 1)
                     {
@@ -54,6 +55,7 @@ namespace Railway_Project
                             Console.Write("Enter Your Choice : ");
                             int choice = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine();
+                            Console.Clear();
 
                             if (choice == 1)
                             {

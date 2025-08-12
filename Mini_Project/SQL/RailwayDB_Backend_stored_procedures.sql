@@ -98,26 +98,31 @@ begin
 				select reservationID, PassengerID, Name, @trainID, @travelDate, @class, @pricePerSeat 
 				from passengers where reservationID = @rid and status = 'CONFIRMED'
 
-				update reservation set status = 'CANCELLED' where reservationID = @rid
+				update reservation set status = 'CANCELLED' where reservationID = @rid 
 
 				update passengers set status = 'CANCELLED' where reservationID = @rid
 			end	
 			else
 			begin
-				set @seatsToRelease = 1
+				select @seatsToRelease = count(*) from passengers where reservationID = @rid and passengerID = @pid and status = 'CONFIRMED'
 
 				set @pricePerSeat = @refund / @seatsToRelease
 
 				insert into cancellation (reservationID, PassengerID, Name, TrainID, TravelDate, Class, Refund)
 				select reservationID, PassengerID, Name, @trainID, @travelDate, @class, @pricePerSeat 
-				from passengers where passengerID = @pid
+				from passengers where passengerID = @pid and status = 'CONFIRMED'
 
-				update Passengers set status = 'CANCELLED' where passengerID = @pid
+				update Passengers set status = 'CANCELLED' where  reservationID = @rid and passengerID = @pid and status = 'CONFIRMED'
 
 				update reservation set status = 'PARTIALLY_CANCELLED' where reservationID = @rid	
 			end
 
 			update seats set AvailableSeats = AvailableSeats + @seatsToRelease where TrainID = @trainID and TravelDate = @travelDate and Class = @class
+
+			if not exists (select 1 from passengers where reservationID = @rid and status = 'CONFIRMED')
+				begin
+					update reservation set status = 'CANCELLED' where reservationID = @rid
+				end
 
 		commit transaction
 	end try
