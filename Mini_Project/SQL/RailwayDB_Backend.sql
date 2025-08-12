@@ -1,4 +1,4 @@
-create database RailwayDB
+
 
 --Creating users table
 
@@ -45,15 +45,14 @@ Create Table Trains (TrainID int primary key,
 						TrainName varchar(100) not null,
 						Source varchar(100) not null,
 						Destination varchar(100) not null,
-						Departure_Date Date not null,
 						Departure_Time Time not null)
 
 --Inserting into Train Table
 
-insert into Trains values(101, 'Chennai Express', 'Chennai', 'Visakhapatnam', '2025-08-25', '6:30'),
-							(102, 'Chennai Express', 'Visakhapatnam', 'Chennai', '2025-08-25', '16:45'),
-							(103, 'Mysore Express', 'Chennai', 'Mysore', '2025-08-25', '7:30'),
-							(104, 'Mysore Express', 'Mysore', 'Chennai', '2025-08-25', '14:30')
+insert into Trains values(101, 'Chennai Express', 'Chennai', 'Visakhapatnam',  '6:30'),
+							(102, 'Chennai Express', 'Visakhapatnam', 'Chennai',  '16:45'),
+							(103, 'Mysore Express', 'Chennai', 'Mysore','7:30'),
+							(104, 'Mysore Express', 'Mysore', 'Chennai', '14:30')
 							
 
 --Displaying Train Table 
@@ -69,7 +68,6 @@ drop table Trains
 
 create table seats (SeatID int primary key identity(1,1),
 					TrainID int foreign key references Trains(TrainID),
-					TravelDate date not null,
 					Class nvarchar(100) not null,
 					TotalSeats int not null,
 					AvailableSeats int not null,
@@ -78,19 +76,19 @@ create table seats (SeatID int primary key identity(1,1),
 
 --Inserting into Seats Table
 
-insert into seats(TrainID, TravelDate, Class, TotalSeats, AvailableSeats, Price)
-			values(101, '2025-08-25', 'Sleeper', 10, 10, 500),
-					(101, '2025-08-25', '3rd-AC', 10, 10, 1000),
-					(101, '2025-08-25', '2nd-AC', 10, 10, 1500),
-					(102, '2025-08-25', 'Sleeper', 10, 10, 500),
-					(102, '2025-08-25', '3rd-AC', 10, 10, 1000),
-					(102, '2025-08-25', '2nd-AC', 10, 10, 1500),
-					(103, '2025-08-25', 'Sleeper', 10, 10, 500),
-					(103, '2025-08-25', '3rd-AC', 10, 10, 1000),
-					(103, '2025-08-25', '2nd-AC', 10, 10, 1500),
-					(104, '2025-08-25', 'Sleeper', 10, 10, 500),
-					(104, '2025-08-25', '3rd-AC', 10, 10, 1000),
-					(104, '2025-08-25', '2nd-AC', 10, 10, 1500)
+insert into seats(TrainID, Class, TotalSeats, AvailableSeats, Price)
+			values(101,  'Sleeper', 10, 10, 500),
+					(101, '3rd-AC', 10, 10, 1000),
+					(101,  '2nd-AC', 10, 10, 1500),
+					(102, 'Sleeper', 10, 10, 500),
+					(102,  '3rd-AC', 10, 10, 1000),
+					(102,  '2nd-AC', 10, 10, 1500),
+					(103,  'Sleeper', 10, 10, 500),
+					(103, '3rd-AC', 10, 10, 1000),
+					(103,  '2nd-AC', 10, 10, 1500),
+					(104,  'Sleeper', 10, 10, 500),
+					(104, '3rd-AC', 10, 10, 1000),
+					(104, '2nd-AC', 10, 10, 1500)
 
 --Displaying Seats Table 
 
@@ -171,7 +169,8 @@ create table Cancellation (CancellationID int identity(20001,1) primary key,
 							TrainID int ,
 							TravelDate date,
 							Class nvarchar(20),
-							Refund float)
+							Refund float,
+							CancellationTime DateTime default getDate())
 
 --Displaying Cancellation Table
 

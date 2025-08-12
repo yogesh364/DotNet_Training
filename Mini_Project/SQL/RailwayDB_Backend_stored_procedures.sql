@@ -1,14 +1,16 @@
+use InfiniteDB
+
 
 --Stored procedure for Train Details
 
-create or alter procedure sp_train_detail
+create or alter procedure sp_train_detail @date date
 as
 begin
-	select t.TrainID, t.TrainName, t.Source, t.Destination, t.Departure_Date, t.Departure_time, s.Class, s.AvailableSeats, s.Price
+	select t.TrainID, t.TrainName, t.Source, t.Destination, t.Departure_time, s.Class, s.AvailableSeats, s.Price
 	from trains t join seats s 
 	on t.trainID = s.trainID
 	where s.availableseats > 0
-	order by t.departure_date, t.departure_time
+	order by  t.departure_time
 end
 
 --Executing Procedure
@@ -19,17 +21,30 @@ exec sp_train_detail
 
 drop procedure sp_train_details
 
---stored procedure for sp_get_train_details
+--Creating Procedure sp_train_detail_admin
 
-create or alter procedure sp_get_train_details @tsource varchar(100), @tdestination varchar(100), @tdate Date
+create or alter procedure sp_train_detail_admin @date date
 as
 begin
-	select t.TrainID, t.TrainName, t.Source, t.Destination, t.Departure_Date, t.Departure_time, s.Class, s.AvailableSeats, s.Price
+	select t.TrainID, t.TrainName, t.Source, t.Destination, t.Departure_time, s.Class, s.AvailableSeats, s.Price
 	from trains t join seats s 
 	on t.trainID = s.trainID
-	where (t.Source = @tsource and t.Destination = @tdestination and t.Departure_Date = @tdate )
-	order by t.departure_date, t.departure_time
+	order by  t.departure_time
 end
+
+--stored procedure for sp_get_train_details
+
+create or alter procedure sp_get_train_details @tsource varchar(100), @tdestination varchar(100)
+as
+begin
+	select t.TrainID, t.TrainName, t.Source, t.Destination, t.Departure_time, s.Class, s.AvailableSeats, s.Price
+	from trains t join seats s 
+	on t.trainID = s.trainID
+	where (t.Source = @tsource and t.Destination = @tdestination)
+	order by  t.departure_time
+end
+
+exec sp_get_train_details 'Chennai', 'Mysore'
 
 --Executing procedure
 
@@ -117,7 +132,7 @@ begin
 				update reservation set status = 'PARTIALLY_CANCELLED' where reservationID = @rid	
 			end
 
-			update seats set AvailableSeats = AvailableSeats + @seatsToRelease where TrainID = @trainID and TravelDate = @travelDate and Class = @class
+			update seats set AvailableSeats = AvailableSeats + @seatsToRelease where TrainID = @trainID and Class = @class
 
 			if not exists (select 1 from passengers where reservationID = @rid and status = 'CONFIRMED')
 				begin
@@ -171,22 +186,22 @@ create or alter procedure sp_tranfer_to_reservation @trainID int, @travelDate da
 as
 begin
 	declare @wid int, @seats int,@price float, @rid int
-
+	begin try
 		begin transaction
 			while exists ( select 1 from waitingList w
 							where w.trainID = @trainID and w.travelDate = @travelDate and w.class = @class
 							and w.seatNo <= (select AvailableSeats from seats 
-							where TrainID = @trainID and TravelDate = @travelDate and Class = @class))
+							where TrainID = @trainID and Class = @class))
 
 			begin
 
 				select top 1 @wid = waitingID, @seats = seatNo from waitingList 
 				where trainID = @trainID and travelDate = @travelDate and class = @class
 				and seatNo <= (select AvailableSeats from seats 
-				where TrainID = @trainID and TravelDate = @travelDate and Class = @class)
+				where TrainID = @trainID and Class = @class)
 				order by waitingID
 
-				select @price = Price from seats where TrainID = @trainID and TravelDate = @travelDate and Class = @class
+				select @price = Price from seats where TrainID = @trainID and Class = @class
 
 				insert into reservation (UserID, TrainID, TravelDate, Class, SeatNo, Status, TotalPrice)
 				select userID, TrainID, TravelDate, Class, SeatNo, 'CONFIRMED', @price from waitingList where waitingID = @wid
@@ -197,9 +212,14 @@ begin
 				
 				delete from waitingList where waitingID = @wid
 
-				update seats set AvailableSeats = AvailableSeats - @seats where TrainID = @trainID and TravelDate = @travelDate and Class = @class
+				update seats set AvailableSeats = AvailableSeats - @seats where TrainID = @trainID and Class = @class
 			end
 		commit transaction
+	end try
+	begin catch
+		rollback transaction
+		throw
+	end catch
 end
 
 exec sp_tranfer_to_reservation 103, '2025-08-25', 'Sleeper'
@@ -207,17 +227,17 @@ exec sp_tranfer_to_reservation 103, '2025-08-25', 'Sleeper'
 
 --creating procedure sp_insert_train
 
-create or alter procedure sp_insert_train @trainID int, @trainName varchar(100), @source varchar(20), @destination varchar(20), @dep_date Date, @dep_time time 
+create or alter procedure sp_insert_train @trainID int, @trainName varchar(100), @source varchar(20), @destination varchar(20), @dep_time time 
 as
 begin
 	begin try
 		begin transaction
-			insert into Trains values(@trainID, @trainName, @source, @destination, @dep_date, @dep_time)
+			insert into Trains values(@trainID, @trainName, @source, @destination, @dep_time)
 
-			insert into seats (trainID, TravelDate, Class, TotalSeats, AvailableSeats, Price)
-						values(@trainID, @dep_date, 'Sleeper', 10, 10, 500),
-								(@trainID, @dep_date, '2nd-Ac', 10, 10, 1000),
-								(@trainID, @dep_date, '3rd-AC', 10, 10, 1500)
+			insert into seats (trainID,  Class, TotalSeats, AvailableSeats, Price)
+						values(@trainID,  'Sleeper', 10, 10, 500),
+								(@trainID,  '2nd-Ac', 10, 10, 1000),
+								(@trainID,  '3rd-AC', 10, 10, 1500)
 		commit transaction
 	end try
 	begin catch
@@ -228,23 +248,36 @@ end
 
 --Creating procedure sp_get_reservation_details
 
-create or alter procedure sp_get_reservation_details
+create or alter procedure sp_get_reservation_details @start date, @end date
 as
 begin
 	select r.ReservationID, t.TrainName, t.Source, t.Destination, r.TravelDate, r.Class, r.SeatNo, r.status, r.BookingTime, p.PassengerID, p.Name, p.Age, p.Gender, p.mobile, p.status  as 'Passenger Status'                                  
 	from Reservation r join Trains t on r.TrainID = t.TrainID
 	join Passengers p on r.ReservationID = p.ReservationID
-	where  r.status in('CONFIRMED','PARTIALLY_CANCELLED')
+	where  r.status in('CONFIRMED','PARTIALLY_CANCELLED') and r.travelDate between @start and @end
 	order by r.reservationID, p.PassengerID
 end
 
 --creating procedure sp_get_waiting_details
 
-create or alter procedure sp_get_waiting_details
+create or alter procedure sp_get_waiting_details @start date, @end date
 as
 begin
 select w.waitingID, t.TrainName, t.Source, t.Destination, w.TravelDate, w.Class, w.SeatNo, w.status, w.BookingTime, p.PassengerID, p.Name, p.Age, p.Gender, p.mobile, p.status as 'Passenger Status'                                   
 	from WaitingList w join Trains t on w.TrainID = t.TrainID
 	join Passengers p on w.waitingID = p.WaitingID
+	where w.travelDate between @start and @end
 	order by w.waitingID, p.PassengerID		
+end
+
+--Creating procedure sp_get_cancel_details
+
+create or alter procedure sp_get_cancel_details @start date, @end date
+as 
+begin
+	select c.CancellationID, c.ReservationID, c.waitingID,  t.TrainName, t.Source, t.Destination, c.TravelDate, c.Class, p.PassengerID, p.Name, p.Age, p.Gender, p.mobile, p.status as 'Passenger Status'
+	from Cancellation c join Trains t on c.TrainID = t.TrainID
+	join Passengers p on C.PassengerID = p.PassengerID
+	where c.travelDate between @start and @end
+	order by C.CancellationID, p.PassengerID
 end

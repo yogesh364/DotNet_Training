@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic.cs" />
-    <Compile Include="DataAccess.cs" />
+    <Compile Include="BusinessLogic\BusinessLogicUser.cs" />
+    <Compile Include="BusinessLogic\BusinessLogicAdmin.cs" />
+    <Compile Include="DataAccess\DataAccessUser.cs" />
+    <Compile Include="DataAccess\DataAccessAdmin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

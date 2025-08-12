@@ -15,6 +15,7 @@ namespace Railway_Project
             try
             {
                 BusinessLogic bl = new BusinessLogic();
+                BusinessLogicAdmin bla = new BusinessLogicAdmin();
 
                 while (true)
                 {
@@ -63,7 +64,7 @@ namespace Railway_Project
                             }
                             else if(choice == 2)
                             {
-                                bl.adminLogin();
+                                bla.adminLogin();
                             }
                             else
                             {
