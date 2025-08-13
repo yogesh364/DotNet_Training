@@ -80,16 +80,7 @@ namespace Railway_Project
                 if (ans == 1)
                 {
 
-                    Console.Write("Enter Travel Date (yyyy-mm-dd) : ");
-                    DateTime Date = DateTime.Parse(Console.ReadLine());
-                    Console.WriteLine();
-
-                    if (Date < DateTime.Now)
-                    {
-                        Console.WriteLine("Details Cannot be fetched for Past Date.");
-                        continue;
-                    }
-                    SqlDataReader sdr = DataAccessAdmin.trainDetails(Date);
+                    SqlDataReader sdr = DataAccessAdmin.trainDetails();
 
                     if (sdr.HasRows)
                     {

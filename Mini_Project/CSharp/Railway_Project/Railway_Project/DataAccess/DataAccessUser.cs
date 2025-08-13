@@ -132,7 +132,7 @@ namespace Railway_Project
             Console.WriteLine();
         }
 
-        public static SqlDataReader trainDetails(DateTime date)
+        public static SqlDataReader trainDetails()
         {
             try
             {
@@ -140,8 +140,6 @@ namespace Railway_Project
 
                 cmd = new SqlCommand("sp_train_detail", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@date", date);
 
                 dr = cmd.ExecuteReader();
 

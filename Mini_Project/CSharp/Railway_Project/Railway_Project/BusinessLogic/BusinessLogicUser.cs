@@ -130,17 +130,7 @@ namespace Railway_Project
                 if (ans == 1)
                 {
 
-                    Console.Write("Enter Travel Date (yyyy-mm-dd) : ");
-                    DateTime Date = DateTime.Parse(Console.ReadLine());
-                    Console.WriteLine();
-
-                    if (Date < DateTime.Now.Date)
-                    {
-                        Console.WriteLine("Details Cannot be fetched for Past Date.");
-                        continue;
-                    }
-
-                    SqlDataReader sdr = DataAccess.trainDetails(Date);
+                    SqlDataReader sdr = DataAccess.trainDetails();
 
                     if (sdr.HasRows)
                     {
@@ -277,14 +267,50 @@ namespace Railway_Project
                             Console.WriteLine($"Enter Details of Passenger {i + 1} : ");
                             Console.WriteLine();
 
-                            Console.Write("Name : ");
-                            string name = Console.ReadLine();
-                            Console.Write("Age : ");
-                            int age = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("Gender : ");
-                            string gen = Console.ReadLine();
-                            Console.Write("Phone : ");
-                            string mobile = Console.ReadLine();
+                            string name;
+                            while (true)
+                            {
+                                Console.Write("Name: ");
+                                name = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(name))
+                                    break;
+                                Console.WriteLine("Invalid name. Please enter a valid name.");
+                            }
+
+                            int age;
+                            while (true)
+                            {
+                                Console.Write("Age: ");
+                                if (int.TryParse(Console.ReadLine(), out age) && age > 0 && age <= 120)
+                                    break;
+                                Console.WriteLine("Invalid age. Please enter a valid number between 1 and 120.");
+                            }
+
+                            string gen;
+                            while (true)
+                            {
+                                Console.Write("Gender (Male/Female/Other): ");
+                                gen = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(gen) &&
+                                    (gen.Equals("Male", StringComparison.OrdinalIgnoreCase) ||
+                                     gen.Equals("Female", StringComparison.OrdinalIgnoreCase) ||
+                                     gen.Equals("Other", StringComparison.OrdinalIgnoreCase)))
+                                    break;
+                                Console.WriteLine("Invalid gender. Please enter 'Male', 'Female', or 'Other'.");
+                            }
+
+                            string mobile;
+                            while (true)
+                            {
+                                Console.Write("Phone (10 digits): ");
+                                mobile = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(mobile) &&
+                                    mobile.Length == 10 &&
+                                    mobile.All(char.IsDigit))
+                                    break;
+                                Console.WriteLine("Invalid phone number. Please enter a 10-digit number.");
+                            }
+
                             Console.WriteLine();
 
                             int passengerID = DataAccess.insertPassenger(res, null, name, age, gen, mobile);
@@ -320,14 +346,50 @@ namespace Railway_Project
                             Console.WriteLine($"Enter Details of Passenger {i + 1} : ");
                             Console.WriteLine();
 
-                            Console.Write("Name : ");
-                            string name = Console.ReadLine();
-                            Console.Write("Age : ");
-                            int age = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("Gender : ");
-                            string gen = Console.ReadLine();
-                            Console.Write("Phone : ");
-                            string mobile = Console.ReadLine();
+                            string name;
+                            while (true)
+                            {
+                                Console.Write("Name: ");
+                                name = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(name))
+                                    break;
+                                Console.WriteLine("Invalid name. Please enter a valid name.");
+                            }
+
+                            int age;
+                            while (true)
+                            {
+                                Console.Write("Age: ");
+                                if (int.TryParse(Console.ReadLine(), out age) && age > 0 && age <= 120)
+                                    break;
+                                Console.WriteLine("Invalid age. Please enter a valid number between 1 and 120.");
+                            }
+
+                            string gen;
+                            while (true)
+                            {
+                                Console.Write("Gender (Male/Female/Other): ");
+                                gen = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(gen) &&
+                                    (gen.Equals("Male", StringComparison.OrdinalIgnoreCase) ||
+                                     gen.Equals("Female", StringComparison.OrdinalIgnoreCase) ||
+                                     gen.Equals("Other", StringComparison.OrdinalIgnoreCase)))
+                                    break;
+                                Console.WriteLine("Invalid gender. Please enter 'Male', 'Female', or 'Other'.");
+                            }
+
+                            string mobile;
+                            while (true)
+                            {
+                                Console.Write("Phone (10 digits): ");
+                                mobile = Console.ReadLine();
+                                if (!string.IsNullOrWhiteSpace(mobile) &&
+                                    mobile.Length == 10 &&
+                                    mobile.All(char.IsDigit))
+                                    break;
+                                Console.WriteLine("Invalid phone number. Please enter a 10-digit number.");
+                            }
+
                             Console.WriteLine();
 
                             int passengerID = DataAccess.insertPassenger(null, res, name, age, gen, mobile);

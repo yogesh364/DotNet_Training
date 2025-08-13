@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.36128.20
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Railway_Project", "Railway_Project\Railway_Project.csproj", "{22AE06BA-4456-4EA9-B530-1F32BE223C11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestting", "NUnitTestting\NUnitTestting.csproj", "{81AD98BC-6C5E-4645-9E31-EF634864467F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{22AE06BA-4456-4EA9-B530-1F32BE223C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22AE06BA-4456-4EA9-B530-1F32BE223C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22AE06BA-4456-4EA9-B530-1F32BE223C11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81AD98BC-6C5E-4645-9E31-EF634864467F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81AD98BC-6C5E-4645-9E31-EF634864467F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81AD98BC-6C5E-4645-9E31-EF634864467F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81AD98BC-6C5E-4645-9E31-EF634864467F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

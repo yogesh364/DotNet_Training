@@ -3,9 +3,11 @@ use InfiniteDB
 
 --Stored procedure for Train Details
 
-create or alter procedure sp_train_detail @date date
+create or alter procedure sp_train_detail
 as
 begin
+
+
 	select t.TrainID, t.TrainName, t.Source, t.Destination, t.Departure_time, s.Class, s.AvailableSeats, s.Price
 	from trains t join seats s 
 	on t.trainID = s.trainID
@@ -48,7 +50,7 @@ exec sp_get_train_details 'Chennai', 'Mysore'
 
 --Executing procedure
 
-exec sp_get_train_details 'chennai','mysore', '2025-08-25'
+exec sp_get_train_details 'chennai','mysore', 
 
 --Deleting Procedure 
 

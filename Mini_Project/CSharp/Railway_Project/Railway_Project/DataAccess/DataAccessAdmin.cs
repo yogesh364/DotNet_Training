@@ -47,7 +47,7 @@ namespace Railway_Project
             return result;
         }
 
-        public static SqlDataReader trainDetails(DateTime date)
+        public static SqlDataReader trainDetails()
         {
             try
             {
@@ -55,8 +55,6 @@ namespace Railway_Project
 
                 cmd = new SqlCommand("sp_train_detail_admin", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@date", date);
 
                 dr = cmd.ExecuteReader();
 
@@ -185,11 +183,11 @@ namespace Railway_Project
         {
             Console.WriteLine("{0,-15} | {1,-15} | {2,-15} | {3,-20} | {4,-15} | {5,-15} | {6,-12} | {7,-15} | {8,-10} | {9,-20} | {10, -10} | {11,-10} | {12,-15} | {13, -20}",
                                 "CancellationID", "ReservationID", "WaitingID", "Train Name", "Source", "Destination", "TravelDate", "Class", "Passenger ID", "Passenger Name", "Age", "Gender", "Phone No", "Passenger Status");
-            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             while (dr.Read())
             {
                 Console.WriteLine(
-            "{0,-15} | {1,-15} | {2,-15} | {3,-20} | {4,-15} | {5,-15} | {6,-12:yyyy-mm-dd} | {7,-15} | {8,-10} | {9,-20} | {10,-10} | {11,-10} | {12,-15}",
+            "{0,-15} | {1,-15} | {2,-15} | {3,-20} | {4,-15} | {5,-15} | {6,-12:yyyy-mm-dd} | {7,-15} | {8,-10} | {9,-20} | {10,-10} | {11,-10} | {12,-15} | {13, -20}",
             dr["CancellationID"], dr["ReservationID"], dr["WaitingID"], dr["TrainName"],
             dr["Source"], dr["Destination"], dr["TravelDate"], dr["Class"], dr["PassengerID"], dr["Name"], dr["Age"], dr["Gender"], dr["Mobile"], dr["Passenger Status"]);
             }
