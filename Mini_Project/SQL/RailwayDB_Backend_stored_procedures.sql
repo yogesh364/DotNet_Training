@@ -25,7 +25,7 @@ drop procedure sp_train_details
 
 --Creating Procedure sp_train_detail_admin
 
-create or alter procedure sp_train_detail_admin @date date
+create or alter procedure sp_train_detail_admin
 as
 begin
 	select t.TrainID, t.TrainName, t.Source, t.Destination, t.Departure_time, s.Class, s.AvailableSeats, s.Price
