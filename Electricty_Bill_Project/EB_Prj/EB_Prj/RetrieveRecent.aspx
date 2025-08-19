@@ -48,8 +48,15 @@
         <div class="container">
             <h1>Latest Added Bills
             </h1>
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" Width="791px">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource1" GridLines="Vertical" Width="791px" AutoGenerateColumns="False" DataKeyNames="Bill_ID">
                 <AlternatingRowStyle BackColor="#DCDCDC" />
+                <Columns>
+                    <asp:BoundField DataField="Bill_ID" HeaderText="Bill_ID" InsertVisible="False" ReadOnly="True" SortExpression="Bill_ID" />
+                    <asp:BoundField DataField="Customer_number" HeaderText="Customer_number" SortExpression="Customer_number" />
+                    <asp:BoundField DataField="Customer_name" HeaderText="Customer_name" SortExpression="Customer_name" />
+                    <asp:BoundField DataField="Units_consumed" HeaderText="Units_consumed" SortExpression="Units_consumed" />
+                    <asp:BoundField DataField="Bill_amount" HeaderText="Bill_amount" SortExpression="Bill_amount" />
+                </Columns>
                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                 <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />

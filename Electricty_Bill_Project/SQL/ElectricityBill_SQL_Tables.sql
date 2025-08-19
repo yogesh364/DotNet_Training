@@ -24,15 +24,24 @@ create table customer ( Bill_ID int identity primary key,
 						Units_consumed int,
 						Bill_amount float,
 						Billing_date date default getdate())
+
 --Drop Customer
 
 drop table customer
+
+--Displaying Customer Table
+
+select * from customer
+
+--Create Table Exceptions
 
 create table exceptions (count int identity primary key,
 							Ex_message nvarchar(100),
 							Ex_Type nvarchar(200),
 							Ex_Source nvarchar(max),
 							Ex_URL nvarchar(100))
+
+
 
 create or alter procedure sp_ExceptionLogging_DB @exceptionmsg nvarchar(100), @exceptiontype nvarchar(200), @exceptionsource nvarchar(max), @exceptionurl nvarchar(100)
 as
@@ -41,4 +50,6 @@ begin
 end
 
 
+
+SELECT COUNT(*) FROM customer WHERE Customer_number = 'EB00001'
 

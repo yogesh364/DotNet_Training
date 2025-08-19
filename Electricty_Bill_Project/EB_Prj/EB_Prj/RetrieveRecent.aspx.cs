@@ -11,6 +11,11 @@ namespace EB_Prj
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
             if (Request.QueryString["count"] != null)
             {
                 int count = Convert.ToInt32(Request.QueryString["count"]);

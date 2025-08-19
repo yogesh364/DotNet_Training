@@ -24,9 +24,12 @@ namespace EB_Prj
         {
             if (!IsPostBack)
             {
+                if (Session["UserName"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
                 currentCount = 0;
                 total = 0;
-
             }
         }
 
@@ -110,6 +113,15 @@ namespace EB_Prj
         protected void txtcustno_TextChanged(object sender, EventArgs e)
         {
             success.Visible = false;
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string custID = args.Value;
+
+            bool exists = DBHandler.user(custID);
+
+            args.IsValid = !exists;
         }
     }
 }

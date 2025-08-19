@@ -11,14 +11,20 @@ namespace EB_Prj
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 if(Session["UserName"] != null)
                 {
                     string user = Session["UserName"].ToString();
-                    lblWelcome.Text = "Welcome, " + user + "!";
+                    lblWelcome.Text = "Welcome,  " + user + "!";
+                }
+                else if (Session["UserName"] == null)
+                {
+                    Response.Redirect("Login.aspx");
                 }
             }
+
             load();
 
         }

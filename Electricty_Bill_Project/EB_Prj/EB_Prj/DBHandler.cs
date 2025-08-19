@@ -29,7 +29,7 @@ namespace EB_Prj
             string ans = null;
             try
             {
-                getConnection();
+                con = getConnection();
 
                 cmd = new SqlCommand("select AdminName from admin where Email = @mail and Password = @pass", con);
                 cmd.Parameters.AddWithValue("@mail", mail);
@@ -50,6 +50,27 @@ namespace EB_Prj
                 LogExceptiontoDB(es);
                 return null;
             }
+        }
+
+        public static bool user(string id)
+        {
+            bool result = false;
+            try
+            {
+                con = getConnection();
+
+                cmd = new SqlCommand("SELECT COUNT(*) FROM customer WHERE Customer_number = @id", con);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                int count = (int)cmd.ExecuteScalar();
+
+                result = count > 0;
+            }
+            catch(SqlException es)
+            {
+                LogExceptiontoDB(es);
+            }
+            return result;
         }
 
         public static double calculateBill(int units)

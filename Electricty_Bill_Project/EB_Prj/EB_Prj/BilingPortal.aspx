@@ -10,7 +10,6 @@
         }
         .form-container h2 {
             text-align: center;
-
         }
         .form { 
             margin-bottom: 12px; 
@@ -55,12 +54,14 @@
         </div>
 
         <div class="form">
-            <asp:Label ID="txtlbl2" runat="server" Text="Enter The Customer Number : "></asp:Label>
+            <asp:Label ID="txtlbl2" runat="server" Text="Enter The Customer Number : " ></asp:Label>
             <br />
             <br />
-            <asp:TextBox ID="txtcustno" runat="server" OnTextChanged="txtcustno_TextChanged" ></asp:TextBox>
+            <asp:TextBox ID="txtcustno" runat="server" OnTextChanged="txtcustno_TextChanged"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="* required" ControlToValidate="txtcustno" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtcustno" ValidationExpression="^EB\d{5}$" ErrorMessage="* Must be EB followed by 5 digits (e.g., EB12345)" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
+            <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtcustno" OnServerValidate="CustomValidator1_ServerValidate" ErrorMessage="* Customer ID already exists!" ForeColor="Red" Display="Dynamic"></asp:CustomValidator>
+
         </div>
 
         <div class="form">
