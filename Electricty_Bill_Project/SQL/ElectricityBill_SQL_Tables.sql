@@ -41,7 +41,7 @@ create table exceptions (count int identity primary key,
 							Ex_Source nvarchar(max),
 							Ex_URL nvarchar(100))
 
-
+select * from exceptions
 
 create or alter procedure sp_ExceptionLogging_DB @exceptionmsg nvarchar(100), @exceptiontype nvarchar(200), @exceptionsource nvarchar(max), @exceptionurl nvarchar(100)
 as
@@ -52,4 +52,6 @@ end
 
 
 SELECT COUNT(*) FROM customer WHERE Customer_number = 'EB00001'
+
+
 
