@@ -1,0 +1,28 @@
+﻿@model MVC_CC9.Models.Movies
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@model Question2.Models.Movie
+
+<h2>Add New Movie</h2>
+
+@using (Html.BeginForm())
+{
+<div>
+    @Html.LabelFor(m => m.Moviename)
+    @Html.TextBoxFor(m => m.Moviename)
+</div>
+<div>
+     @Html.LabelFor(m => m.DirectorName)
+    @Html.TextBoxFor(m => m.DirectorName)
+</div>
+<div>
+    @Html.LabelFor(m => m.DateofRelease)
+    @Html.TextBoxFor(m => m.DateofRelease, "{0:yyyy-MM-dd}", new { type = "date" })
+</div>
+<br />
+<input type="submit" value="Save" />}
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_CC9.Models.Customer>
+@{
+    ViewBag.Title = "Germany";
+}
+
+<h2>Germany</h2>
+
+<table class="table table-bordered"">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(models => item.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayFor(models => item.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayFor(models => item.ContactName)
+            </th>
+            <th>
+                @Html.DisplayFor(models => item.City)
+            </th>
+            <th>
+                @Html.DisplayFor(models => item.Country)
+            </th>
+            <th>
+                @Html.DisplayFor(models => item.Phone)
+            </th>
+        </tr>
+    }
+</table>
