@@ -51,12 +51,9 @@ namespace MVC_CC9.Repository
             }
         }
 
-        
-
         public IEnumerable<T> GetMoviesByYear(int year)
         {
-            var movies = _repo.GetByYear(year);
-            return View("Index", movies);
+            return null;
         }
 
         public IEnumerable<T> GetMoviesByDirector(string director)
