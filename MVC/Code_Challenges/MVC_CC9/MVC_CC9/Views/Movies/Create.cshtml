@@ -9,16 +9,16 @@
 @using (Html.BeginForm())
 {
 <div>
-    @Html.LabelFor(m => m.Moviename)
-    @Html.TextBoxFor(m => m.Moviename)
+    @Html.LabelFor(m => m.movieName)
+    @Html.TextBoxFor(m => m.movieName)
 </div>
 <div>
      @Html.LabelFor(m => m.DirectorName)
     @Html.TextBoxFor(m => m.DirectorName)
 </div>
 <div>
-    @Html.LabelFor(m => m.DateofRelease)
-    @Html.TextBoxFor(m => m.DateofRelease, "{0:yyyy-MM-dd}", new { type = "date" })
+    @Html.LabelFor(m => m.release)
+    @Html.TextBoxFor(m => m.release, "{0:yyyy-MM-dd}", new { type = "date" })
 </div>
 <br />
 <input type="submit" value="Save" />}
